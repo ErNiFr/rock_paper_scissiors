@@ -9,7 +9,7 @@ const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
-        return `Oavgjort! ${playerSelection} och ${playerSelection} är samma!`;
+        return `Draw! ${computerSelection} and ${computerSelection} are the same!`;
     }
     
     for (let i = 0; i < 3; i++) {
@@ -20,8 +20,11 @@ function playRound(playerSelection, computerSelection) {
             y = i;
         }
     }
-    
-    
+    if ((x == 0 && y == 1) || (x == 1 && y == 2) || (x == 3 && y == 0)){ 
+        return `You lost! ${computerSelection} beats ${playerSelection}!`;
+    } else {
+        return `You won! ${playerSelection} beats ${computerSelection}!`;
+    }
 }
 
-console.log();
+console.log(playRound(playerSelection, getComputerChoice()));
